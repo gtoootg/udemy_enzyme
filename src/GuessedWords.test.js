@@ -40,3 +40,28 @@ describe('if there are no words guessed', ()=>{
         expect(instructions.text().length).not.toBe(0)
     })
 })
+
+describe('if there are words guessed', ()=>{
+    const guessedWords = [
+        {guessedWord: 'train', letterMatchCount:3},
+        {guessedWord: 'agile', letterMatchCount:1},
+        {guessedWord: 'party', letterMatchCount:5},
+    ] 
+    let wrapper
+    beforeEach(()=>{
+        wrapper = setup({guessedWords})
+    })
+    test('render without error', ()=>{
+        // eslint-disable-next-line testing-library/await-async-query
+        const component = findByTestAttr(wrapper, 'component-guessed-words')
+        expect(component.length).toBe(1)
+    })
+    test('render guessedword', ()=>{
+        const guessedWordsNode = findByTestAttr(wrapper, 'guessed-word')
+        expect(guessedWordsNode.length).toBe(3)
+    })
+    test('render guessedwords', ()=>{
+        const guessedWordNode = findByTestAttr(wrapper, 'guessed-words')
+        expect(guessedWordNode.length).toBe(1)
+    })
+})
