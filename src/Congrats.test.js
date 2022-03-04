@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import React from 'react'
 import Congrats from './Congrats'
 
-import {findByTestAttr} from '../test/testUtils'
+import {findByTestAttr} from './test/testUtils'
 import { text } from 'express';
 
 Enzyme.configure({ adapter: new Adapter() });
