@@ -1,3 +1,38 @@
+## At first
+install react ver16
+
+`npm i --save react@16 react-dom@16`
+
+install enzyme and adapter which is compatible to react16
+
+`npm i --save -dev enzyme enzyme-adapter-react-16`
+
+These files and config are already set in this repository but this is needed to run jest.
+
+
+#### babel.config.js
+```
+module.exports = {
+    presets:[
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
+```
+
+#### all files of test.js
+
+```
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+ 
+Enzyme.configure({ adapter: new Adapter() });
+```
+
+
+
+-------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
